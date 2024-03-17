@@ -27,8 +27,6 @@ router.post("/", (req, res) => {
   });
 });
 
-
-
 // Update a product
 router.put("/:id", (req, res) => {
   const productId = req.params.id;
