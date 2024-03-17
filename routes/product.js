@@ -27,17 +27,7 @@ router.post("/", (req, res) => {
   });
 });
 
-// Read all products
-// router.get("/", (req, res) => {
-//   const query = `SELECT * FROM ${tableName}`;
-//   db.query(query, (err, results) => {
-//     if (err) {
-//       console.error(err);
-//       return res.status(500).json({ error: "Error fetching products" });
-//     }
-//     res.json(results);
-//   });
-// });
+
 
 // Update a product
 router.put("/:id", (req, res) => {
@@ -114,7 +104,7 @@ router.get("/", (req, res) => {
       return res.status(500).json({ error: "Error fetching products" });
     }
 
-    // Calculate total pages
+    // to calculate total pagesg
     const countQuery = `SELECT COUNT(*) AS total FROM ${tableName}`;
     db.query(countQuery, (err, countResult) => {
       if (err) {
