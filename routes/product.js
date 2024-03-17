@@ -27,6 +27,8 @@ router.post("/", (req, res) => {
   });
 });
 
+
+
 // Update a product
 router.put("/:id", (req, res) => {
   const productId = req.params.id;
@@ -102,7 +104,7 @@ router.get("/", (req, res) => {
       return res.status(500).json({ error: "Error fetching products" });
     }
 
-    // Calculate total pages
+    // to calculate total pagesg
     const countQuery = `SELECT COUNT(*) AS total FROM ${tableName}`;
     db.query(countQuery, (err, countResult) => {
       if (err) {

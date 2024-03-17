@@ -19,7 +19,7 @@ const fetchProducts = () => {
       const startIndex = (currentPage - 1) * itemsPerPage;
       const endIndex = startIndex + itemsPerPage;
 
-      // pagination for each products
+      // pagination for each product data
       products.forEach((product, index) => {
         const row = document.createElement("tr");
         row.innerHTML = `
@@ -106,4 +106,5 @@ function deleteProduct(productId) {
   }
 }
 
+// Fetch Products on every render
 fetchProducts();
