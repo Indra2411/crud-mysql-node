@@ -1,14 +1,14 @@
 const urlParams = new URLSearchParams(window.location.search);
-// const customLimit = urlParams.get('limit');
+
 
 let currentPage = Number(urlParams.get("page")) || 1; // Current page number
-const itemsPerPage = Number(urlParams.get("limit")) || 5; // Number of products to display per page
+const itemsPerPage = Number(urlParams.get("limit")) || 5; // Number of data to display per page
 let totalPages = 0; // Total number of pages
-let products = []; // Array to store all products
-// const route = `?page=${currentPage}&limit=${itemsPerPage}`;
+let products = []; // Array to store all products data
+
 
 const fetchProducts = () => {
-  //   fetch(`/api/products?page=${currentPage}`)
+  //   fetch
   fetch(`/api/products?page=${currentPage}&limit=${itemsPerPage}`)
     .then((response) => response.json())
     .then((data) => {
@@ -20,10 +20,9 @@ const fetchProducts = () => {
 
       const startIndex = (currentPage - 1) * itemsPerPage;
       const endIndex = startIndex + itemsPerPage;
-      //   const pagingProducts = products.slice(startIndex, endIndex);
-      //   console.log(products.slice(startIndex, endIndex));
+      
 
-      // pagingProducts.forEach((product, index) => {
+      // pagination for each product data
       products.forEach((product, index) => {
         const row = document.createElement("tr");
         row.innerHTML = `
@@ -88,7 +87,7 @@ const fetchProducts = () => {
       </nav>`;
       paginationSection.innerHTML = paginationComponent;
 
-      //   console.log(currentPage, totalPages);
+    
     })
     .catch((error) => console.error(error));
 };
@@ -112,13 +111,7 @@ function deleteProduct(productId) {
   }
 }
 
-//Change page
-// function changePage(page) {
-//   if (page >= 1 && page <= totalPages) {
-//     currentPage === page;
-//     fetchProducts(currentPage);
-//   }
-// }
+
 
 // Fetch Products on initia render
 fetchProducts();
