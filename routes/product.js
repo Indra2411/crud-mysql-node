@@ -27,18 +27,6 @@ router.post("/", (req, res) => {
   });
 });
 
-// Read all products
-// router.get("/", (req, res) => {
-//   const query = `SELECT * FROM ${tableName}`;
-//   db.query(query, (err, results) => {
-//     if (err) {
-//       console.error(err);
-//       return res.status(500).json({ error: "Error fetching products" });
-//     }
-//     res.json(results);
-//   });
-// });
-
 // Update a product
 router.put("/:id", (req, res) => {
   const productId = req.params.id;
@@ -100,7 +88,7 @@ router.get("/:id", (req, res) => {
 // route for pagination
 router.get("/", (req, res) => {
   const page = req.query.page || 1; // Current page number
-  const limit = req.query.limit || 5; // Items per page
+  const limit = req.query.limit || 5; // Items to display per page
   const offset = (page - 1) * limit; // Offset for SQL query
 
   const query = `

@@ -57,8 +57,8 @@
         <thead>
           <tr>
             <th>Sr.No</th>
-            <th>ID</th>
-            <th>Name</th>
+            <th>Product Id</th>
+            <th>Product Name</th>
             <th>Category Name</th>
             <th>Category ID</th>
             <th>Actions</th>
@@ -79,64 +79,5 @@
     </section>
   </section>
 </body>
-
-
-<!-- <script>
-  // Fetch and render the product list
-
-  // const urlParams = new URLSearchParams(window.location.search);
-
-  // // const customLimit = urlParams.get('limit');
-
-  // let currentPage = urlParams.get('page') || 1; // Current page number
-  // const itemsPerPage = 2; // Number of products to display per page
-  // let totalPages = 0; // Total number of pages
-  // let products = []; // Array to store all products
-  // const route = `?page=${currentPage}&limit=${itemsPerPage}`
-
-
-  // // fetch('/api/products')
-  // fetch(`/api/products?page=${currentPage}&limit=${itemsPerPage}`)
-  //   .then(response => response.json())
-  //   .then(data => {
-  //     products = data.products;
-  //     totalPages = data.totalPages;
-
-  //     const productList = document.getElementById('product-list');
-  //     productList.innerHTML = "";
-
-  //     const startIndex = (currentPage - 1) * itemsPerPage;
-  //     const endIndex = startIndex + itemsPerPage;
-  //     const pagingProducts = products.slice(startIndex, endIndex);
-  //     console.log(products.slice(startIndex, endIndex))
-
-  //     // pagingProducts.forEach((product, index) => {
-  //     products.forEach((product, index) => {
-  //       const row = document.createElement('tr');
-  //       row.innerHTML = `  
-  //           <td>${startIndex + index + 1}</td>
-  //           <td>${product.product_Id}</td>
-  //           <td>${product.product_Name}</td>
-  //           <td>${product.category_Name}</td>
-  //           <td>${product.category_Id}</td>
-  //           <td>
-  //             <a href="/pages/update-product.html?id=${product.product_Id}" class="btn btn-primary btn-sm me-2">Edit</a>
-  //             <button class="btn btn-danger btn-sm" onclick="deleteProduct(${product.product_Id})">Delete</button>
-  //           </td>
-  //         `;
-  //       productList.appendChild(row);
-  //     });
-  //   })
-  //   .catch(error => console.error(error));
-
-
-  // function changePage(page) {
-  //   if (page >= 1 && page <= totalPages) {
-  //     currentPage = page;
-  //     fetchProducts(currentPage);
-  //   }
-  // }
-
-</script> -->
 
 </html>
