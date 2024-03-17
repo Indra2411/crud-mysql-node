@@ -1,0 +1,142 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <title>Crud-Operation-Mysql</title>
+  <!-- Required meta tags -->
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <link rel="stylesheet" href="./css/styles.css">
+  <!-- Bootstrap CSS v5.2.1 -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous" />
+  <!-- Bootstrap JavaScript Libraries -->
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+    integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
+    crossorigin="anonymous"></script>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"
+    integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+"
+    crossorigin="anonymous"></script>
+  <script src="./js/main.js"></script>
+  <!-- <script src="./js/pagination.js"></script> -->
+
+
+</head>
+
+<body>
+
+
+  <section>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item">
+            <a style="color: black" class="nav-link" href="/">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/pages/create-product.html">Create Product</a>
+          </li>
+
+        </ul>
+
+      </div>
+    </nav>
+  </section>
+
+
+  <section>
+    <div class="container my-5">
+      <h1 class="mb-4">Product List</h1>
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th>Sr.No</th>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Category Name</th>
+            <th>Category ID</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody id="product-list">
+          <!-- Products will be dynamically rendered here -->
+        </tbody>
+      </table>
+      <nav aria-label="Product Pagination">
+        <ul class="pagination justify-content-center" id="pagination">
+          <!-- Pagination links will be dynamically rendered here -->
+        </ul>
+      </nav>
+    </div>
+
+    <section id="pagination-section">
+    </section>
+  </section>
+</body>
+
+
+<!-- <script>
+  // Fetch and render the product list
+
+  // const urlParams = new URLSearchParams(window.location.search);
+
+  // // const customLimit = urlParams.get('limit');
+
+  // let currentPage = urlParams.get('page') || 1; // Current page number
+  // const itemsPerPage = 2; // Number of products to display per page
+  // let totalPages = 0; // Total number of pages
+  // let products = []; // Array to store all products
+  // const route = `?page=${currentPage}&limit=${itemsPerPage}`
+
+
+  // // fetch('/api/products')
+  // fetch(`/api/products?page=${currentPage}&limit=${itemsPerPage}`)
+  //   .then(response => response.json())
+  //   .then(data => {
+  //     products = data.products;
+  //     totalPages = data.totalPages;
+
+  //     const productList = document.getElementById('product-list');
+  //     productList.innerHTML = "";
+
+  //     const startIndex = (currentPage - 1) * itemsPerPage;
+  //     const endIndex = startIndex + itemsPerPage;
+  //     const pagingProducts = products.slice(startIndex, endIndex);
+  //     console.log(products.slice(startIndex, endIndex))
+
+  //     // pagingProducts.forEach((product, index) => {
+  //     products.forEach((product, index) => {
+  //       const row = document.createElement('tr');
+  //       row.innerHTML = `  
+  //           <td>${startIndex + index + 1}</td>
+  //           <td>${product.product_Id}</td>
+  //           <td>${product.product_Name}</td>
+  //           <td>${product.category_Name}</td>
+  //           <td>${product.category_Id}</td>
+  //           <td>
+  //             <a href="/pages/update-product.html?id=${product.product_Id}" class="btn btn-primary btn-sm me-2">Edit</a>
+  //             <button class="btn btn-danger btn-sm" onclick="deleteProduct(${product.product_Id})">Delete</button>
+  //           </td>
+  //         `;
+  //       productList.appendChild(row);
+  //     });
+  //   })
+  //   .catch(error => console.error(error));
+
+
+  // function changePage(page) {
+  //   if (page >= 1 && page <= totalPages) {
+  //     currentPage = page;
+  //     fetchProducts(currentPage);
+  //   }
+  // }
+
+</script> -->
+
+</html>
