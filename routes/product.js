@@ -117,5 +117,50 @@ router.get("/", (req, res) => {
     });
   });
 });
+const categoriesNameColumnName = "name";
+const categoriesIdColumnName = "id";
+// product- category relationship
+router.get("/api/products", (req, res) => {
+  const query = `
+    SELECT p.${productIdColumnName} AS product_id, c.${categoriesNameColumnName} AS category_name, p.${productColumnName} AS product_name
+    FROM ${categoriesTableName} c
+    LEFT JOIN ${crud} p ON p.${categoryIdColumnName} = c.${categoriesIdColumnName}
+    ORDER BY c.${categoriesNameColumnName}, p.${productColumnName}
+  `;
+
+  db.query(query, (err, results) => {
+    if (err) {
+      console.error(err);
+      return res
+        .status(500)
+        .json({ error: "Error fetching categories and products" });
+    }
+
+    // Group the results by category
+    const categories = [];
+    results.forEach((result) => {
+      const categoryIndex = categories.findIndex(
+        (c) => c.category_name === result.category_name
+      );
+      if (categoryIndex === -1) {
+        categories.push({
+          category_name: result.category_name,
+          products: result.product_name
+            ? [{ id: result.product_id, name: result.product_name }]
+            : [],
+        });
+      } else {
+        if (result.product_name) {
+          categories[categoryIndex].products.push({
+            id: result.product_id,
+            name: result.product_name,
+          });
+        }
+      }
+    });
+
+    res.json(categories);
+  });
+});
 
 module.exports = router;

@@ -12,11 +12,10 @@ const db = require("./db");
 // Routes
 const productsRouter = require("./routes/product");
 app.use("/api/products", productsRouter);
+app.use("/api/products/:id", productsRouter);
 
 // Serve static files from the public directory
 app.use(express.static("public"));
-
-
 
 // Start the server
 app.listen(port, () => {
